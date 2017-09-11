@@ -10,16 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170911182137) do
+ActiveRecord::Schema.define(version: 20170911215403) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "days", force: :cascade do |t|
     t.string "name"
-    t.date "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "date"
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -28,8 +28,11 @@ ActiveRecord::Schema.define(version: 20170911182137) do
     t.integer "priority_level"
     t.string "completion_time"
     t.boolean "completed", default: false
+    t.bigint "day_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["day_id"], name: "index_tasks_on_day_id"
   end
 
+  add_foreign_key "tasks", "days"
 end

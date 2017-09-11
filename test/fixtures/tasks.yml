@@ -6,6 +6,7 @@ one:
   priority_level: 1
   completion_time: MyString
   completed: false
+  day: one
 
 two:
   name: MyString
@@ -13,3 +14,4 @@ two:
   priority_level: 1
   completion_time: MyString
   completed: false
+  day: two
