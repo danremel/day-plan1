@@ -7,7 +7,7 @@ class Api::TasksController < ApplicationController
 
   def show
     @day = Day.find(params[:day_id])
-    @task = @day.task.find(params[:id])
+    @task = @day.tasks.find(params[:id])
     render json: @task
   end
 
@@ -26,8 +26,8 @@ class Api::TasksController < ApplicationController
 
   def update
     @day = Day.find(params[:day_id])
-    @task = @day.task.find(params[:id])
-    if @task.update
+    @task = @day.tasks.find(params[:id])
+    if @task.update(task_params)
       render json: @task
     else
       render json: {
@@ -38,7 +38,7 @@ class Api::TasksController < ApplicationController
 
   def destroy
     @day = Day.find(params[:day_id])
-    @task = @day.task.find(params[:id])
+    @task = @day.tasks.find(params[:id])
     @task.destroy
     render json: {
       message: 'Task successfully deleted'
