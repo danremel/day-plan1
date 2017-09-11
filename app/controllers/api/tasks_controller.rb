@@ -13,7 +13,7 @@ class Api::TasksController < ApplicationController
 
   def create
     @day = Day.find(params[:day_id])
-    @task = @day.task.new
+    @task = @day.tasks.new(task_params)
 
     if @task.save
       render json: @task
