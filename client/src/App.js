@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import AllDays from './components/AllDays';
 import Day from './components/Day';
+import EditDay from './components/EditDay';
 
 class App extends Component {
   render() {
@@ -9,7 +10,8 @@ class App extends Component {
       <Router>
         <div>
           <Route exact path="/" component={AllDays}/>
-          <Route path="/days/:id" component={Day}/>
+          <Route exact path="/days/:id" component={Day}/>
+          <Route exact path="/days/:id/edit" component={EditDay}/>
         </div>
       </Router>
     );

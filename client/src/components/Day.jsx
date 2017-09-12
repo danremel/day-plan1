@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 class Day extends Component {
   constructor(){
@@ -26,7 +27,7 @@ class Day extends Component {
   render() {
     return (
       <div>
-        <h1>{this.state.day.name} - ({this.state.day.date})</h1>
+        <h1>{this.state.day.name} - ({this.state.day.date})<Link to={`/days/${this.props.match.params.id}/edit`} fetchDayAndTasks={this.props._fetchDayAndTasks}>Edit</Link></h1>
         {this.state.tasks.map((task) => (
           <div key={task.id}>
             <h3>Task: {task.name}</h3>
@@ -35,6 +36,7 @@ class Day extends Component {
             <p>To be completed by: {task.completion_time}</p>
           </div>
         ))}
+        <Link to="/">Back</Link>
       </div>
     );
   }

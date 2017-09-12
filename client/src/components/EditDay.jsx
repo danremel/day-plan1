@@ -22,10 +22,12 @@ class EditDay extends Component {
   _fetchDay = async (dayId) => {
     try {
       const response = await axios.get(`/api/days/${dayId}`)
-      await this.setState({
+      
+      await console.log(response.data.day) 
+      this.setState({
         day: {
-          name: response.data.name,
-          date: response.data.date
+          name: response.data.day.name,
+          date: response.data.day.date
         }
       })
     } catch (err) {
@@ -40,6 +42,7 @@ class EditDay extends Component {
     try {
       const response = await axios.patch(`/api/days/${dayId}`, day)
       this.setState({redirect: true})
+      return response.date;
     } catch (err) {
       console.log(err)
     }
@@ -66,13 +69,15 @@ class EditDay extends Component {
               <input onChange={this._handleChange} 
                 type="text" 
                 name="name" 
+                placeholder={this._fetchDay}
                 value={this.state.day.name} />
             </div>
             <div>
               <label htmlFor="date">Date: </label>
-              <input onChahge={this._handleChange}
+              <input onChange={this._handleChange}
                 type="text"
                 name="date"
+                placeholder={this.state.day.name}
                 value={this.state.day.date} />
             </div>
             <button onClick={this._editDay}>Edit Day</button>
