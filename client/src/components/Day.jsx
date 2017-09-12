@@ -30,7 +30,7 @@ class Day extends Component {
         {this.state.tasks.map((task) => (
           <div key={task.id}>
             <h3>Task: {task.name}</h3>
-            <p>{task.description}</p>
+            <p>Description: {task.description}</p>
             <p>Priority level: {task.priority_level} out of 3</p>
             <p>To be completed by: {task.completion_time}</p>
           </div>
