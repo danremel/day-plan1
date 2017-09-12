@@ -10,7 +10,7 @@ class App extends Component {
       <Router>
         <div>
           <Route exact path="/" component={AllDays}/>
-          <Route path="/day/:id" component={Day}/>
+          <Route path="/days/:id" component={Day}/>
         </div>
       </Router>
     );

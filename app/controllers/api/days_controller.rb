@@ -8,7 +8,7 @@ class Api::DaysController < ApplicationController
     @day = Day.find(params[:id])
     @tasks = @day.tasks.all
     render json: {
-      day: @artist,
+      day: @day,
       tasks: @tasks
     }
   end
