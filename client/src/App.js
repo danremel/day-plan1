@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import AllDays from './components/AllDays';
 import Day from './components/Day';
 

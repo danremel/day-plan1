@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import DayCard from './DayCard';
+import NewDay from './NewDay';
+
 class AllDays extends Component {
   constructor(){
     super();
@@ -30,6 +32,7 @@ class AllDays extends Component {
     }
     return (
       <div>
+        <NewDay/>
         {this.state.days.map((day) => (
           <DayCard key={day.id} day={day} />
         ))}
