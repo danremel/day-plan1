@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-
+import TaskCard from './TaskCard';
 class Day extends Component {
   constructor(){
     super();
@@ -29,12 +29,7 @@ class Day extends Component {
       <div>
         <h1>{this.state.day.name} - ({this.state.day.date})<Link to={`/days/${this.props.match.params.id}/edit`} fetchDayAndTasks={this.props._fetchDayAndTasks}>Edit</Link></h1>
         {this.state.tasks.map((task) => (
-          <div key={task.id}>
-            <h3>Task: {task.name}</h3>
-            <p>Description: {task.description}</p>
-            <p>Priority level: {task.priority_level} out of 3</p>
-            <p>To be completed by: {task.completion_time}</p>
-          </div>
+          <TaskCard key={task.id} task={task} day={this.state.day}/>
         ))}
         <Link to="/">Back</Link>
       </div>

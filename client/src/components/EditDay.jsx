@@ -81,6 +81,7 @@ class EditDay extends Component {
                 value={this.state.day.date} />
             </div>
             <button onClick={this._editDay}>Edit Day</button>
+            {/* <button onClick={() => {if(confirm('Delete this Day?')) {this.deleteDay}}}>Delete</button> */}
           </form>
         </div>
         }
