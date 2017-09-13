@@ -49,6 +49,8 @@ class EditDay extends Component {
   }
 
   _deleteDay = async (e) => {
+    const c = window.confirm('Are you sure you want to delete this day?');
+    if (c == true) {
     const id = this.props.match.params.id;
     try {
       const response = await axios.delete(`/api/days/${id}`)
@@ -56,7 +58,11 @@ class EditDay extends Component {
     } catch (err) {
       console.log(err)
     }
+  } else {
+    console.log("Failed to delete Day")
   }
+}
+
 
   _handleChange = (e) => {
     const newState = {...this.state.day}
@@ -92,7 +98,8 @@ class EditDay extends Component {
               <button onClick={this._editDay}>Edit Day</button>
             </div>
           </form>
-          <button onClick={this._deleteDay}>DELETE</button>
+          <button onClick={this._deleteDay}>
+            DELETE</button>
         </div>
         }
       </div>

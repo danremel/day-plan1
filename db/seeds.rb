@@ -7,7 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-
+Day.destroy_all
+Task.destroy_all
 
 brothers_birthday = Day.new(name: "Brother's Birthday", date: "2017-06-22")
 

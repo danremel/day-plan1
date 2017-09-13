@@ -49,12 +49,17 @@ class EditTask extends Component {
   }
 
   _deleteTask = async (e) => {
-    const { dayId, id } = this.props.match.params;
-    try {
-      const response = await axios.delete(`/api/days/${dayId}/tasks/${id}`)
-      this.setState({redirect: true})
-    } catch (err) {
-      console.log(err)
+    const c = window.confirm('Are you sure you want to delete this Task?')
+    if (c == true) {
+      const { dayId, id } = this.props.match.params;
+      try {
+        const response = await axios.delete(`/api/days/${dayId}/tasks/${id}`)
+        this.setState({redirect: true})
+      } catch (err) {
+        console.log(err)
+      }
+    } else {
+      console.log("Did not delete Task")
     }
   }
 
@@ -102,12 +107,6 @@ class EditTask extends Component {
                 name="completion_time"
                 value={this.state.task.completion_time} />
             </div>
-            {/* <div>
-              <label htmlFor="completed">Complete? </label>
-              <input onChange={this.setState({ completed: !this.state.completed })}
-                type="checkbox"
-                value="completed" />
-            </div> */}
             <div>
               <button>Edit Task</button>
             </div>
