@@ -69,7 +69,6 @@ class EditDay extends Component {
               <input onChange={this._handleChange} 
                 type="text" 
                 name="name" 
-                placeholder={this._fetchDay}
                 value={this.state.day.name} />
             </div>
             <div>
@@ -77,7 +76,6 @@ class EditDay extends Component {
               <input onChange={this._handleChange}
                 type="text"
                 name="date"
-                placeholder={this.state.day.name}
                 value={this.state.day.date} />
             </div>
             <button onClick={this._editDay}>Edit Day</button>
