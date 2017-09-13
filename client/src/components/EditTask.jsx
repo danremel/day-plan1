@@ -38,7 +38,6 @@ class EditTask extends Component {
     e.preventDefault();
     const payload = this.state.task;
     console.log(payload)
-    const task = this.state.task;
     const { dayId, id } = this.props.match.params;
     try {
       const response = await axios.patch(`/api/days/${dayId}/tasks/${id}`, payload)
@@ -50,7 +49,6 @@ class EditTask extends Component {
   }
 
   _deleteTask = async (e) => {
-    const task = this.state.task;
     const { dayId, id } = this.props.match.params;
     try {
       const response = await axios.delete(`/api/days/${dayId}/tasks/${id}`)
@@ -68,7 +66,7 @@ class EditTask extends Component {
     })
   }
   render() {
-    const { dayId, id } = this.props.match.params;
+    const { dayId } = this.props.match.params;
     return (
       <div>
         {this.state.redirect ?

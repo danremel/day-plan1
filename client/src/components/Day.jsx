@@ -25,9 +25,11 @@ class Day extends Component {
   }
 
   render() {
+    const id = this.props.match.params.id;
     return (
       <div>
         <h1>{this.state.day.name} - ({this.state.day.date})<Link to={`/days/${this.props.match.params.id}/edit`} fetchDayAndTasks={this.props._fetchDayAndTasks}>Edit</Link></h1>
+        <Link to={`/days/${id}/task/new`}>Add a new Task</Link>
         {this.state.tasks.map((task) => (
           <TaskCard key={task.id} task={task} day={this.state.day}/>
         ))}
