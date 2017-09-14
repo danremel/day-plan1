@@ -1,4 +1,6 @@
 class Api::TasksController < ApplicationController
+  before_action :authenticate_user!
+  
   def index
     @day = Day.find(params[:day_id])
     @tasks = @day.tasks.all

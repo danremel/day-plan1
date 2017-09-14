@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import axios from 'axios';
-
+import { saveAuthTokens } from '../util';
 class SignUpLogIn extends Component {
   constructor(){
     super();
@@ -13,8 +13,15 @@ class SignUpLogIn extends Component {
     }
   }
 
-  _signUp = (e) => {
+  _signUp = async (e) => {
     e.preventDefault();
+    const payload = {
+      email: this.state.email,
+      password: this.state.password,
+      password_confirmation: this.state.password_confirmation
+    }
+    const response = await axios.post('/auth', payload);
+    saveAuthTokens(response.headers)
     this.setState({redirect: true})
   }
 
@@ -49,7 +56,7 @@ class SignUpLogIn extends Component {
             <input onChange={this._handleChange} type="text" name="password_confirmation" value={this.state.password_confirmation} />
           </div>
           <button>Sign Up</button>
-          <button onClick={this._signIn}>Log In</button>
+          <Link to="/signin">Log In</Link>
         </form>
       </div>
     );
