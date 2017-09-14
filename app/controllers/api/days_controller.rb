@@ -1,11 +1,13 @@
 class Api::DaysController < ApplicationController
+  before_action :authenticate_user!
+  
   def index
-    @days = Day.all
+    @days = current_user.days
     render json: @days
   end
 
   def show
-    @day = Day.find(params[:id])
+    @day = current_user.days.find(params[:id])
     @tasks = @day.tasks.all
     render json: {
       day: @day,
@@ -14,7 +16,7 @@ class Api::DaysController < ApplicationController
   end
 
   def create
-    @day = Day.new(day_params)
+    @day = current_user.days.new(day_params)
 
     if @day.save
       render json: @day
@@ -26,7 +28,7 @@ class Api::DaysController < ApplicationController
   end
 
   def update
-    @day = Day.find(params[:id])
+    @day = current_user.days.find(params[:id])
     if @day.update(day_params)
       render json: @day
     else
@@ -37,7 +39,7 @@ class Api::DaysController < ApplicationController
   end
 
   def destroy
-    @day = Day.find(params[:id])
+    @day = current_user.days.find(params[:id])
     @day.destroy
     render json: {
       message: 'Day successfully deleted'
