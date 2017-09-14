@@ -2,19 +2,19 @@ class Api::TasksController < ApplicationController
   before_action :authenticate_user!
   
   def index
-    @day = Day.find(params[:day_id])
+    @day = current_user.days.find(params[:day_id])
     @tasks = @day.tasks.all
     render json: @tasks
   end
 
   def show
-    @day = Day.find(params[:day_id])
+    @day = current_user.days.find(params[:day_id])
     @task = @day.tasks.find(params[:id])
     render json: @task
   end
 
   def create
-    @day = Day.find(params[:day_id])
+    @day = current_user.days.find(params[:day_id])
     @task = @day.tasks.new(task_params)
 
     if @task.save
@@ -27,7 +27,7 @@ class Api::TasksController < ApplicationController
   end
 
   def update
-    @day = Day.find(params[:day_id])
+    @day = current_user.days.find(params[:day_id])
     @task = @day.tasks.find(params[:id])
     if @task.update(task_params)
       render json: @task
@@ -39,7 +39,7 @@ class Api::TasksController < ApplicationController
   end
 
   def destroy
-    @day = Day.find(params[:day_id])
+    @day = current_user.days.find(params[:day_id])
     @task = @day.tasks.find(params[:id])
     @task.destroy
     render json: {
