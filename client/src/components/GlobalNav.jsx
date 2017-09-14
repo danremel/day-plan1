@@ -37,7 +37,7 @@ class GlobalNav extends Component {
     if (this.state.loggedIn) {
       return (
         <div>
-          <Link to="/">
+          <Link to="/days">
             <h1>DayPlan</h1>
           </Link>
           <div>

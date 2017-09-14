@@ -30,6 +30,14 @@ class AllDays extends Component {
     if (this.state.error){
       return <h1>{this.state.error.message}</h1>
     }
+    else if (this.state.days.length === 0) {
+      return (
+      <div>
+        <NewDay/>
+        <h3>You have no days. Create one now!</h3>
+      </div>
+      )
+    }
     return (
       <div>
         <NewDay/>
