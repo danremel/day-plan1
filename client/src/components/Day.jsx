@@ -33,7 +33,7 @@ class Day extends Component {
         {this.state.tasks.map((task) => (
           <TaskCard key={task.id} task={task} day={this.state.day}/>
         ))}
-        <Link to="/">Back</Link>
+        <Link to="/days">Back</Link>
       </div>
     );
   }

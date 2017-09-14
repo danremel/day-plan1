@@ -76,7 +76,7 @@ class EditDay extends Component {
     return (
       <div>
         {this.state.redirect ?
-        <Redirect to={{pathname:'/', state: {refresh: true}}}/>
+        <Redirect to={{pathname:'/days', state: {refresh: true}}}/>
         :
         <div>
           <form>
