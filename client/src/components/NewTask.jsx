@@ -28,9 +28,9 @@ class NewTask extends Component {
   _addTask = async (e) => {
     e.preventDefault();
     const id = this.props.match.params.id;
-    console.log(id);
     const payload = this.state.task
     const response = await axios.post(`/api/days/${id}/tasks`, payload)
+    console.log(response);
     this.setState({redirect: true})
   }
 

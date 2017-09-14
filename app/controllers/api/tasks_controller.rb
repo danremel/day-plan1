@@ -2,28 +2,24 @@ class Api::TasksController < ApplicationController
   before_action :authenticate_user!
   
   def index
-    @day = current_user.days.find(params[:day_id])
+    @user = current_user
+    @day = @user.days.find(params[:day_id])
     @tasks = @day.tasks.all
     render json: @tasks
   end
 
   def show
-    @day = current_user.days.find(params[:day_id])
+    @user = current_user
+    @day = @user.days.find(params[:day_id])
     @task = @day.tasks.find(params[:id])
     render json: @task
   end
 
   def create
-    @day = current_user.days.find(params[:day_id])
-    @task = @day.tasks.new(task_params)
-
-    if @task.save
-      render json: @task
-    else
-      render json: {
-        message: 'Error when creating task'
-      }
-    end
+    @user = current_user
+    @day = @user.days.find(params[:day_id])
+    @task = @day.tasks.create(task_params)
+    puts @task
   end
 
   def update
@@ -50,6 +46,8 @@ class Api::TasksController < ApplicationController
 
   private
   def task_params
-    params.require(:task).permit(:name, :description, :priority_level, :completion_time, :completed)
+    @task = params.require(:task).permit(:name, :description, :priority_level, :completion_time, :completed)
+    user_id = {user_id: current_user.id}
+    @task.merge(user_id)
   end
 end
