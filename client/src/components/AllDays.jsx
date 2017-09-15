@@ -2,6 +2,20 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import DayCard from './DayCard';
 import NewDay from './NewDay';
+import styled from 'styled-components';
+
+const AllDaysContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 5% 28%;
+  a {
+    color: rgb(243, 232, 214);
+    text-decoration: none;
+  }
+  `;
 
 class AllDays extends Component {
   constructor(){
@@ -34,16 +48,20 @@ class AllDays extends Component {
       return (
       <div>
         <NewDay/>
-        <h3>You have no days. Create one now!</h3>
+        <AllDaysContainer>
+          <h3>You have no days. Create one now!</h3>
+        </AllDaysContainer>
       </div>
       )
     }
     return (
       <div>
         <NewDay/>
-        {this.state.days.map((day) => (
-          <DayCard key={day.id} day={day} />
-        ))}
+        <AllDaysContainer>
+          {this.state.days.map((day) => (
+            <DayCard key={day.id} day={day} />
+          ))}
+        </AllDaysContainer>
       </div>
     );
   }
