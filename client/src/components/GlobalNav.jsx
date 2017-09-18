@@ -1,6 +1,25 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import styled from 'styled-components';
+
+const NavStyles = styled.div`
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2.5%;
+  box-shadow: 0px 1px 75px black;
+  background-color: rgb(162,215,216);
+  color: rgb(240, 240, 240);
+  a {
+    color: white;
+    text-decoration: none;
+    margin: 0 5px;
+    &:hover {
+      text-decoration: underline;
+    }
+  `;
 
 class GlobalNav extends Component {
   constructor(){
@@ -28,7 +47,7 @@ class GlobalNav extends Component {
 
   _logOut = async () => {
     console.log("Click");
-    const response = await axios.delete("/auth/sign_out");
+    // const response = await axios.delete("/auth/sign_out");
     // Forces refresh of browser
     window.location.reload();
   };
@@ -36,7 +55,7 @@ class GlobalNav extends Component {
   render() {
     if (this.state.loggedIn) {
       return (
-        <div>
+        <NavStyles>
           <Link to="/days">
             <h1>DayPlan</h1>
           </Link>
@@ -44,16 +63,15 @@ class GlobalNav extends Component {
             <span>Signed In As: {this.state.user.email}</span>
             <Link to="/" onClick={this._logOut}>Log Out</Link>
           </div>
-        </div>
+        </NavStyles>
       )
     }
     return (
-      <div>
+      <NavStyles>
         <div>
-            <Link to="/signup">Sign Up</Link>
-            <Link to="/signin">Log In</Link>
-          </div>
-      </div>
+          <h1>DayPlan</h1>
+        </div>
+      </NavStyles>
     );
   }
 }

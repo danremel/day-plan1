@@ -1,6 +1,34 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
+import styled from 'styled-components';
+import FontAwesome from 'react-fontawesome';
+
+const FormContainerStyles = styled.div`
+display: flex;
+flex-direction: column;
+margin: 2% 15%;
+`;
+
+const FormDivStyles = styled.div`
+max-width: 20%;
+margin: 10px 40%;
+align-items: center;  
+a {
+  text-decoration: none;
+  font-weight: bold;
+}
+button {
+  width: auto;
+  height: 40px;
+}
+input {
+  background-color: rgb(237, 237, 234);
+  border: none;
+  border-bottom: 0.5px solid black;
+  outline: none;
+}
+`;
 
 class EditDay extends Component {
   constructor(){
@@ -78,29 +106,32 @@ class EditDay extends Component {
         {this.state.redirect ?
         <Redirect to={{pathname:'/days', state: {refresh: true}}}/>
         :
-        <div>
+        <FormContainerStyles>
           <form>
-            <div>
+            <FormDivStyles>
               <label htmlFor="name">Name: </label>
               <input onChange={this._handleChange} 
                 type="text" 
                 name="name" 
                 value={this.state.day.name} />
-            </div>
-            <div>
+            </FormDivStyles>
+            <FormDivStyles>
               <label htmlFor="date">Date: </label>
               <input onChange={this._handleChange}
                 type="text"
                 name="date"
                 value={this.state.day.date} />
-            </div>
-            <div>
+            </FormDivStyles>
+            <FormDivStyles>
               <button onClick={this._editDay}>Edit Day</button>
-            </div>
+            </FormDivStyles>
           </form>
-          <button onClick={this._deleteDay}>
-            DELETE</button>
-        </div>
+          <FormDivStyles>
+            <button onClick={this._deleteDay}>
+              <FontAwesome className="fa fa-trash-o" name="" aria-hidden="true"/> - Delete
+            </button>
+          </FormDivStyles>
+        </FormContainerStyles>
         }
       </div>
     );
