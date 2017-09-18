@@ -1,6 +1,35 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
+import styled from 'styled-components';
+import FontAwesome from 'react-fontawesome';
+
+
+const FormContainerStyles = styled.div`
+display: flex;
+flex-direction: column;
+margin: 2% 15%;
+`;
+
+const FormDivStyles = styled.div`
+max-width: 20%;
+margin: 10px 40%;
+align-items: center;  
+a {
+  text-decoration: none;
+  font-weight: bold;
+}
+button {
+  width: auto;
+  height: 40px;
+}
+input {
+  background-color: rgb(237, 237, 234);
+  border: none;
+  border-bottom: 0.5px solid black;
+  outline: none;
+}
+`;
 
 class EditTask extends Component {
   constructor(){
@@ -77,42 +106,44 @@ class EditTask extends Component {
         {this.state.redirect ?
         <Redirect to={{pathname:`/days/${dayId}/`}}/>
         :
-        <div>
+        <FormContainerStyles>
           <form onSubmit={this._editTask}>
-            <div>
+            <FormDivStyles>
               <label htmlFor="name">Task Name: </label>
               <input onChange={this._handleChange}
                 type="text"
                 name="name"
                 value={this.state.task.name} />
-            </div>
-            <div>
+            </FormDivStyles>
+            <FormDivStyles>
               <label htmlFor="description">Description: </label>
               <input onChange={this._handleChange}
                 type="text"
                 name="description"
                 value={this.state.task.description} />
-            </div>
-            <div>
+            </FormDivStyles>
+            <FormDivStyles>
               <label htmlFor="priority_level">Priority Level: <em>(out of 3)</em> </label>
               <input onChange={this._handleChange}
                 type="number"
                 name="priority_level"
                 value={this.state.task.priority_level} />
-            </div>
-            <div>
+            </FormDivStyles>
+            <FormDivStyles>
               <label htmlFor="completion_time">Complete By: </label>
               <input onChange={this._handleChange}
                 type="text"
                 name="completion_time"
                 value={this.state.task.completion_time} />
-            </div>
-            <div>
+            </FormDivStyles>
+            <FormDivStyles>
               <button>Edit Task</button>
-            </div>
+            </FormDivStyles>
           </form>
-          <button onClick={this._deleteTask}>DELETE</button>
-        </div>
+          <FormDivStyles>
+            <button onClick={this._deleteTask}><FontAwesome className="fa fa-trash-o" name="" aria-hidden="true"/> - Delete</button>
+          </FormDivStyles>
+        </FormContainerStyles>
         }
       </div>
     );

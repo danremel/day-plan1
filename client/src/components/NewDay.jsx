@@ -3,29 +3,31 @@ import axios from 'axios';
 import styled from 'styled-components';
 
 const FormContainerStyles = styled.div`
+  display: flex;
+  flex-direction: column;
   margin: 2% 15%;
   `;
 
 const FormDivStyles = styled.div`
-  display: flex;
-  flex-direction: column;
   max-width: 20%;
   margin: 10px 40%;
-  align-items: center;
-  color: rgb(243, 232, 214);  
+  align-items: center;  
   a {
     text-decoration: none;
     font-weight: bold;
   }
   button {
-    width: 100%;
+    width: auto;
     height: 40px;
-    border-radius: 10%;
-    box-shadow: .5px .5px .5px black;
-    background-color: #e1b97e;
     &:hover {
       background-color: #E5C8A0;
     }
+  }
+  input {
+    background-color: rgb(237, 237, 234);
+    border: none;
+    border-bottom: 0.5px solid black;
+    outline: none;
   }
   `;
 

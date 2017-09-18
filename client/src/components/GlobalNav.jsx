@@ -9,18 +9,16 @@ const NavStyles = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 0 2.5%;
-  box-shadow: 0px 1px 6px black;
-  background-color: rgba(209, 66, 44, .6);
-  color: rgb(243, 232, 214);
-
+  box-shadow: 0px 1px 75px black;
+  background-color: rgb(162,215,216);
+  color: rgb(240, 240, 240);
   a {
-    color: rgb(243, 232, 214);
+    color: white;
     text-decoration: none;
     margin: 0 5px;
     &:hover {
       text-decoration: underline;
     }
-  }
   `;
 
 class GlobalNav extends Component {
@@ -49,7 +47,7 @@ class GlobalNav extends Component {
 
   _logOut = async () => {
     console.log("Click");
-    const response = await axios.delete("/auth/sign_out");
+    // const response = await axios.delete("/auth/sign_out");
     // Forces refresh of browser
     window.location.reload();
   };
@@ -72,8 +70,6 @@ class GlobalNav extends Component {
       <NavStyles>
         <div>
           <h1>DayPlan</h1>
-          <Link to="/signup">Sign Up</Link>
-          <Link to="/signin">Log In</Link>
         </div>
       </NavStyles>
     );
