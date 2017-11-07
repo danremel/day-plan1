@@ -18,6 +18,7 @@ flex-direction: row;
 flex-wrap: wrap;
 justify-content: flex-start;
 align-items: center;
+width: 25%;
 margin: 5% 28%;
 border: 1px solid black;
 box-shadow: 1px 1px 1px black;
@@ -26,8 +27,11 @@ background-color: rgb(222, 88, 66);
 &:hover {
   background-color: rgb(190, 88, 66);
 }
+h1 {
+  text-align: center;
+}
 p {
-  text-align:center;
+  text-align: center;
 }
 a {
   color: rgb(243, 232, 214);
