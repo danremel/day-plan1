@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import { Redirect } from 'react-router-dom';
-import styled from 'styled-components';
-import FontAwesome from 'react-fontawesome';
+import axios                from 'axios';
+import { Redirect }         from 'react-router-dom';
+import styled               from 'styled-components';
+import FontAwesome          from 'react-fontawesome';
 
 const FormContainerStyles = styled.div`
 display: flex;

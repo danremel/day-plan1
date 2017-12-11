@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Redirect, Link } from 'react-router-dom';
-import axios from 'axios';
-import { saveAuthTokens } from '../util';
+import { Redirect, Link }   from 'react-router-dom';
+import axios                from 'axios';
+import { saveAuthTokens }   from '../util';
+
 class SignUpLogIn extends Component {
   constructor(){
     super();

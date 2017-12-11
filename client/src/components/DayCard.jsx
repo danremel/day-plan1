@@ -1,6 +1,6 @@
-import React from 'react';
+import React    from 'react';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import styled   from 'styled-components';
 
 const DayCardStyles = styled.div`
   padding: 10px;

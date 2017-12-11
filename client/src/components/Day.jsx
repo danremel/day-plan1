@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import { Link } from 'react-router-dom';
-import TaskCard from './TaskCard';
-import styled from 'styled-components';
-import FontAwesome from 'react-fontawesome';
+import axios                from 'axios';
+import { Link }             from 'react-router-dom';
+import TaskCard             from './TaskCard';
+import styled               from 'styled-components';
+import FontAwesome          from 'react-fontawesome';
 
 const AllTasksContainer = styled.div`
 display: flex;

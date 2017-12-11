@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
-import styled from 'styled-components';
+import { Link }             from 'react-router-dom';
+import axios                from 'axios';
+import styled               from 'styled-components';
 
 const NavStyles = styled.div`
   width: 95%;

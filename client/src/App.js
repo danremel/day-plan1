@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import AllDays from './components/AllDays';
-import Day from './components/Day';
-import EditDay from './components/EditDay';
-import Task from './components/Task';
-import EditTask from './components/EditTask';
-import NewTask from './components/NewTask';
-import SignUp from './components/SignUp';
-import SignIn from './components/SignIn';
-import GlobalNav from './components/GlobalNav';
-import SplashPage from './components/SplashPage';
+import AllDays 							from './components/AllDays';
+import Day 									from './components/Day';
+import EditDay 							from './components/EditDay';
+import Task                 from './components/Task';
+import EditTa								from './components/EditTask';
+import NewTask 							from './components/NewTask';
+import SignUp 							from './components/SignUp';
+import SignIn 							from './components/SignIn';
+import GlobalNav 						from './components/GlobalNav';
+import SplashPage 					from './components/SplashPage';
 import { setAxiosDefaults } from './util';
 
 

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Redirect, Link } from 'react-router-dom';
-import axios from 'axios';
-import { saveAuthTokens } from '../util';
-import styled from 'styled-components';
-import FontAwesome from 'react-fontawesome';
+import { Redirect, Link }   from 'react-router-dom';
+import axios                from 'axios';
+import { saveAuthTokens }   from '../util';
+import styled               from 'styled-components';
+import FontAwesome          from 'react-fontawesome';
 
 const FormContainerStyles = styled.div`
 margin-top: 25%;

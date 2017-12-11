@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import DayCard from './DayCard';
-import NewDay from './NewDay';
-import styled from 'styled-components';
+import axios                from 'axios';
+import DayCard              from './DayCard';
+import NewDay               from './NewDay';
+import styled               from 'styled-components';
 
 const AllDaysContainer = styled.div`
   display: flex;
